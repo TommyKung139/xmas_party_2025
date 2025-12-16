@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12/22 數平三科聖誕趴</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* 強制使用微軟正黑體 */
+        body {
+            font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", sans-serif;
+        }
+
+        /* 背景與雪花特效 */
+        .christmas-bg {
+            background-color: #0B3B24; /* 深綠色背景 */
+            background-image: radial-gradient(circle at 50% 50%, #134e32 0%, #0B3B24 100%);
+            position: relative;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* 雪花動畫 */
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: #fff;
+            opacity: 0.8;
+            font-size: 1em;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-10vh) translateX(0px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) translateX(20px) rotate(360deg); opacity: 0.3; }
+        }
+
+        /* 金色文字特效 */
+        .text-gold {
+            color: #FFD700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+        
+        .border-gold {
+            border-color: #FFD700;
+        }
+
+        /* 標題特效 */
+        .main-title {
+            color: #D32F2F; /* 聖誕紅 */
+            -webkit-text-stroke: 1px #FFD700; /* 金邊 */
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        /* 表格樣式 */
+        .christmas-table th {
+            background-color: #8B0000; /* 深紅 */
+            color: #FFD700; /* 金字 */
+            border: 1px solid #FFD700;
+        }
+        .christmas-table td {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #000;
+            border: 1px solid #0B3B24;
+        }
+
+        /* 裝飾容器 */
+        .content-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+        }
+
+        /* 角落裝飾 */
+        .corner-decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: #FFD700;
+            z-index: 10;
+        }
+        
+        /* Custom Swing Animation for Bell */
+        @keyframes swing {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(15deg); }
+            50% { transform: rotate(0deg); }
+            75% { transform: rotate(-15deg); }
+            100% { transform: rotate(0deg); }
+        }
+        .animate-swing {
+            animation: swing 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="christmas-bg text-white">
+
+    <!-- 雪花容器 (由JS動態生成) -->
+    <div id="snow-container" class="pointer-events-none fixed inset-0 w-full h-full z-0"></div>
+
+    <div class="relative z-10 container mx-auto px-4 py-8 max-w-4xl">
+        
+        <!-- I. 標題區 -->
+        <header class="text-center mb-10 relative">
+            <div class="flex justify-center items-center gap-4 mb-4">
+                <!-- 裝飾：聖誕樹 -->
+                <i class="fa-solid fa-tree text-green-500 text-2xl sm:text-4xl md:text-6xl drop-shadow-lg"></i>
+                <i class="fa-solid fa-tree text-green-400 text-xl sm:text-3xl md:text-5xl drop-shadow-lg hidden sm:block"></i>
+                
+                <!-- 主標題 -->
+                <h1 class="main-title text-2xl sm:text-4xl md:text-6xl font-bold tracking-wider mx-1 whitespace-nowrap">
+                    12/22 數平三科聖誕趴
+                </h1>
+
+                <!-- 裝飾：聖誕樹 -->
+                <i class="fa-solid fa-tree text-green-400 text-xl sm:text-3xl md:text-5xl drop-shadow-lg hidden sm:block"></i>
+                <i class="fa-solid fa-tree text-green-500 text-2xl sm:text-4xl md:text-6xl drop-shadow-lg"></i>
+            </div>
+            
+            <!-- 裝飾：聖誕老人 -->
+            <div class="text-center animate-bounce">
+                <i class="fa-solid fa-sleigh text-red-400 text-3xl mr-2"></i>
+                <i class="fa-solid fa-santa-claus text-red-500 text-5xl drop-shadow-md"></i>
+            </div>
+        </header>
+
+        <!-- II. 活動資訊區 -->
+        <section class="content-card p-6 mb-8 text-center backdrop-blur-sm">
+            <!-- 邊角裝飾 -->
+            <i class="fa-solid fa-snowflake corner-decoration top-2 left-2 animate-pulse"></i>
+            <i class="fa-solid fa-snowflake corner-decoration top-2 right-2 animate-pulse"></i>
+            <i class="fa-solid fa-holly-berry corner-decoration bottom-2 left-2 text-red-500"></i>
+            <i class="fa-solid fa-holly-berry corner-decoration bottom-2 right-2 text-red-500"></i>
+
+            <div class="space-y-4 text-lg md:text-2xl">
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+                    <span class="font-bold text-white"><i class="fa-regular fa-calendar-check mr-2"></i>時間：</span>
+                    <span class="font-bold text-yellow-400 text-2xl md:text-3xl bg-red-900/50 px-4 py-1 rounded-lg border border-yellow-500/50">
+                        12/22 (五) 下午 15:30 - 17:30
+                    </span>
+                </div>
+                
+                <div class="flex flex-col md:flex-row justify-center items-center gap-2 md:gap-4">
+                    <span class="font-bold text-white"><i class="fa-solid fa-location-dot mr-2"></i>地點：</span>
+                    <span class="text-white border-b-2 border-white/50 pb-1 w-48 md:w-auto inline-block">
+                        B1001
+                    </span>
+                </div>
+
+                <div class="mt-4 pt-4 border-t border-white/20">
+                    <span class="block text-gray-200 text-base md:text-xl font-bold mb-2">
+                        <i class="fa-solid fa-star text-yellow-400 mr-1"></i> 活動主旨 <i class="fa-solid fa-star text-yellow-400 ml-1"></i>
+                    </span>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <span class="bg-red-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">聖誕同樂</span>
+                        <span class="bg-green-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">交換禮物 🎁</span>
+                        <span class="bg-red-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">美食點心 🍰</span>
+                        <span class="bg-green-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">遊戲互動 🎮</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- III. 流程表 -->
+        <section class="mb-10">
+            <h2 class="text-center text-2xl md:text-3xl font-bold mb-6 text-green-300 drop-shadow-md">
+                ⭐ 聖誕節活動流程一覽 ⭐
+            </h2>
+            
+            <div class="overflow-x-auto rounded-xl shadow-2xl border-2 border-yellow-500">
+                <table class="christmas-table w-full text-left text-sm md:text-base">
+                    <thead>
+                        <tr>
+                            <th class="p-3 text-center w-1/4">時間</th>
+                            <th class="p-3 text-center w-1/4">活動內容</th>
+                            <th class="p-3 text-center w-1/4">負責人</th>
+                            <th class="p-3 text-center w-1/4">備註</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-3 text-center font-bold">13:00-14:20</td>
+                            <td class="p-3 font-bold text-red-800"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 場地佈置</td>
+                            <td class="p-3 text-center">場佈組 / 氣球組</td>
+                            <td class="p-3 text-gray-600 text-xs md:text-sm">讓場地充滿聖誕氣息！</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 text-center font-bold">14:20-14:30</td>
+                            <td class="p-3 font-bold text-gray-800"><i class="fa-solid fa-clipboard-check mr-1"></i> 場地巡檢</td>
+                            <td class="p-3 text-center">PM / 場佈組 / 遊戲組</td>
+                            <td class="p-3 text-gray-600 text-xs md:text-sm">確保一切就緒！</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 text-center font-bold">14:30-15:20</td>
+                            <td class="p-3 font-bold text-blue-800"><i class="fa-solid fa-users mr-1"></i> 全科會議(VOC)</td>
+                            <td class="p-3 text-center">乃辰</td>
+                            <td class="p-3 text-gray-600 text-xs md:text-sm">交流與重點紀綠</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 text-center font-bold">15:20-15:30</td>
+                            <td class="p-3 font-bold text-gray-800"><i class="fa-solid fa-cookie-bite mr-1"></i> 場地巡檢</td>
+                            <td class="p-3 text-center">PM / 活動組 / 茶點組</td>
+                            <td class="p-3 text-gray-600 text-xs md:text-sm">動線與茶點補給確認</td>
+                        </tr>
+                        <tr class="bg-red-50">
+                            <td class="p-3 text-center font-bold text-red-600 text-lg">15:30-17:30</td>
+                            <td class="p-3 font-bold text-red-600 text-lg"><i class="fa-solid fa-gift mr-1 animate-pulse"></i> 聖誕趴！</td>
+                            <td class="p-3 text-center font-bold">全員</td>
+                            <td class="p-3 text-red-600 font-bold text-xs md:text-sm">活動執行、點心供應用餐</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- IV. 分工表 -->
+        <section class="mb-12">
+            <h3 class="text-center text-xl font-bold mb-4 text-white/80">
+                <i class="fa-solid fa-people-group mr-2"></i>小組成員分工
+            </h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- 氣球組 -->
+                <div class="bg-white/90 p-4 rounded-lg border-l-4 border-red-500 text-gray-800 shadow-lg">
+                    <h4 class="font-bold text-red-700 text-lg border-b border-gray-300 pb-1 mb-2">
+                        🎈 氣球組
+                    </h4>
+                    <p class="text-sm mb-1"><strong>成員：</strong>博宇, 何芸, Niki, 乃辰</p>
+                    <p class="text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                        重點：氣球打氣及佈置 / 聖誕樹裝飾
+                    </p>
+                </div>
+
+                <!-- 場佈組 -->
+                <div class="bg-white/90 p-4 rounded-lg border-l-4 border-green-500 text-gray-800 shadow-lg">
+                    <h4 class="font-bold text-green-700 text-lg border-b border-gray-300 pb-1 mb-2">
+                        🎄 場佈組
+                    </h4>
+                    <p class="text-sm mb-1"><strong>成員：</strong>淇鈺, Kelly</p>
+                    <p class="text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                        重點：桌巾/餐具/酒水/音樂/聖誕樹佈置
+                    </p>
+                </div>
+
+                <!-- 遊戲組 -->
+                <div class="bg-white/90 p-4 rounded-lg border-l-4 border-yellow-500 text-gray-800 shadow-lg">
+                    <h4 class="font-bold text-yellow-600 text-lg border-b border-gray-300 pb-1 mb-2">
+                        🎮 遊戲組
+                    </h4>
+                    <p class="text-sm mb-1"><strong>成員：</strong>JJ, 棠棠</p>
+                    <p class="text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                        重點：活動空間/道具/投影儀測試
+                    </p>
+                </div>
+
+                <!-- 茶點組 -->
+                <div class="bg-white/90 p-4 rounded-lg border-l-4 border-pink-500 text-gray-800 shadow-lg">
+                    <h4 class="font-bold text-pink-600 text-lg border-b border-gray-300 pb-1 mb-2">
+                        🧁 茶點組
+                    </h4>
+                    <p class="text-sm mb-1"><strong>成員：</strong>玟均, 詩明</p>
+                    <p class="text-xs text-gray-600 bg-gray-100 p-2 rounded">
+                        重點：甜點/鹹點擺盤與補給
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center py-8 relative">
+             <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <i class="fa-solid fa-bell text-yellow-400 text-4xl animate-swing origin-top"></i>
+            </div>
+            <div class="bg-red-800/80 p-6 rounded-xl border border-yellow-400 shadow-2xl inline-block max-w-2xl w-full">
+                <p class="text-xl md:text-2xl font-bold text-white">
+                    🎉 歲末年終，一同歡慶！期待大家的參與！ 🎉
+                </p>
+            </div>
+             <div class="mt-8 text-white/40 text-sm">
+                Made for 數平三科 Christmas Party
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JS: 產生雪花 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowCount = 50; // 雪花數量
+
+            for (let i = 0; i < snowCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.innerHTML = '<i class="fa-regular fa-snowflake"></i>';
+                snowflake.classList.add('snowflake');
+                
+                // 隨機位置與大小
+                snowflake.style.left = Math.random() * 100 + 'vw';
+                snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'em';
+                
+                // 隨機動畫時間與延遲
+                const duration = Math.random() * 5 + 5 + 's';
+                const delay = Math.random() * 5 + 's';
+                
+                snowflake.style.animationDuration = duration;
+                snowflake.style.animationDelay = delay;
+
+                snowContainer.appendChild(snowflake);
+            }
+        });
+    </script>
+</body>
+</html>
