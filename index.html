@@ -57,18 +57,6 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* 表格樣式 */
-        .christmas-table th {
-            background-color: #8B0000; /* 深紅 */
-            color: #FFD700; /* 金字 */
-            border: 1px solid #FFD700;
-        }
-        .christmas-table td {
-            background-color: rgba(255, 255, 255, 0.95);
-            color: #000;
-            border: 1px solid #0B3B24;
-        }
-
         /* 裝飾容器 */
         .content-card {
             background: rgba(0, 0, 0, 0.4);
@@ -159,67 +147,24 @@
                     </span>
                     <div class="flex flex-wrap justify-center gap-3">
                         <span class="bg-red-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">聖誕同樂</span>
-                        <!-- 移除交換禮物標籤 -->
                         <span class="bg-red-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">美食點心 🍰</span>
                         <span class="bg-green-700 px-3 py-1 rounded-full text-white text-sm md:text-base shadow-lg border border-white/20">遊戲互動 🎮</span>
+                    </div>
+
+                    <!-- 邀請文案區塊 -->
+                    <div class="mt-6 p-4 bg-red-900/40 rounded-lg border border-yellow-500/30 mx-2 md:mx-10">
+                        <p class="text-base md:text-lg leading-relaxed text-yellow-100 font-bold tracking-wide">
+                            <i class="fa-solid fa-bell text-yellow-400 mr-1 animate-swing"></i>
+                            在這閃耀的季節，誠摯邀請您共赴這場溫馨的聖誕盛宴。<br class="hidden md:block">
+                            讓我們用美食與歡笑溫暖彼此，在 B1001 留下最美的回憶，期待與您相見！
+                            <i class="fa-solid fa-bell text-yellow-400 ml-1 animate-swing"></i>
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- III. 流程表 -->
-        <section class="mb-10">
-            <h2 class="text-center text-2xl md:text-3xl font-bold mb-6 text-green-300 drop-shadow-md">
-                ⭐ 聖誕節活動流程一覽 ⭐
-            </h2>
-            
-            <div class="overflow-x-auto rounded-xl shadow-2xl border-2 border-yellow-500">
-                <table class="christmas-table w-full text-left text-xs md:text-sm">
-                    <thead>
-                        <tr>
-                            <th class="p-3 text-center w-1/4 text-sm md:text-base">時間</th>
-                            <th class="p-3 text-center w-1/4 text-sm md:text-base">活動內容</th>
-                            <th class="p-3 text-center w-1/4 text-sm md:text-base">負責人</th>
-                            <th class="p-3 text-center w-1/4 text-sm md:text-base">備註</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="p-3 text-center font-bold">13:00-14:20</td>
-                            <td class="p-3 font-bold text-red-800"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> 場地佈置</td>
-                            <td class="p-3 text-center font-normal">場佈組 / 氣球組</td>
-                            <td class="p-3 text-gray-600 font-normal">讓場地充滿聖誕氣息！</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 text-center font-bold">14:20-14:30</td>
-                            <td class="p-3 font-bold text-gray-800"><i class="fa-solid fa-clipboard-check mr-1"></i> 場地巡檢</td>
-                            <td class="p-3 text-center font-normal">PM / 場佈組 / 遊戲組</td>
-                            <td class="p-3 text-gray-600 font-normal">確保一切就緒！</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 text-center font-bold">14:30-15:20</td>
-                            <td class="p-3 font-bold text-blue-800"><i class="fa-solid fa-users mr-1"></i> 全科會議(VOC)</td>
-                            <td class="p-3 text-center font-normal">乃辰</td>
-                            <td class="p-3 text-gray-600 font-normal">交流與重點紀綠</td>
-                        </tr>
-                        <tr>
-                            <td class="p-3 text-center font-bold">15:20-15:30</td>
-                            <td class="p-3 font-bold text-gray-800"><i class="fa-solid fa-cookie-bite mr-1"></i> 場地巡檢</td>
-                            <td class="p-3 text-center font-normal">PM / 活動組 / 茶點組</td>
-                            <td class="p-3 text-gray-600 font-normal">動線與茶點補給確認</td>
-                        </tr>
-                        <tr class="bg-red-50">
-                            <td class="p-3 text-center font-bold text-red-600 text-sm">15:30-17:30</td>
-                            <td class="p-3 font-bold text-red-600 text-sm"><i class="fa-solid fa-gift mr-1 animate-pulse"></i> 聖誕趴！</td>
-                            <td class="p-3 text-center font-normal">全員</td>
-                            <td class="p-3 text-red-600 font-normal">活動執行、點心供應用餐</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- IV. 分工表 -->
+        <!-- IV. 分工表 (原流程表已移除) -->
         <section class="mb-12">
             <h3 class="text-center text-xl font-bold mb-4 text-white/80">
                 <i class="fa-solid fa-people-group mr-2"></i>小組成員分工
